@@ -6,7 +6,11 @@ import android.os.Bundle
 import br.com.fonzie.sosplusseniorassistido.R
 import br.com.fonzie.sosplusseniorassistido.databinding.ActivityFormCadatroBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class FormCadatro : AppCompatActivity() {
 
@@ -35,9 +39,18 @@ class FormCadatro : AppCompatActivity() {
                         binding.editEmail.setText("")
                         binding.editSenha.setText("")
                     }
-                }/*.addOnFailureListener {
-
-                }*/
+                }.addOnFailureListener { exception ->
+                    val mensagemErro = when(exception) {
+                        is FirebaseAuthWeakPasswordException -> "Digite uma senha com no mínimo 6 caracteres!"
+                        is FirebaseAuthInvalidCredentialsException -> "Digte um email válido!"
+                        is FirebaseAuthUserCollisionException -> "Esta conta já foi cadastrada!"
+                        is FirebaseNetworkException -> "Sem conexão com a Internet!"
+                        else -> "Erro ao cadastrar ao usuário!"
+                    }
+                        val snackbar = Snackbar.make(view,mensagemErro, Snackbar.LENGTH_SHORT)
+                        snackbar.setBackgroundTint(Color.RED)
+                        snackbar.show()
+                }
             }
         }
     }
