@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694931681228",
+    "project_id": "sos-plus-senior-assistido",
+    "storage_bucket": "sos-plus-senior-assistido.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694931681228:android:15e46a3f361b44a097b769",
+        "android_client_info": {
+          "package_name": "br.com.fonzie.sosplusseniorassistido"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAhcxON2ZkJLmkjALDUeSOnkAz19LOB7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
