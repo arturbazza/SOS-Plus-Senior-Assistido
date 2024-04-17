@@ -1,24 +1,56 @@
 package br.com.fonzie.sosplusseniorassistido.view.formlogin
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import br.com.fonzie.sosplusseniorassistido.databinding.ActivityFormCadatroBinding
+import br.com.fonzie.sosplusseniorassistido.databinding.ActivityFormLoginBinding
 import br.com.fonzie.sosplusseniorassistido.view.formcadastro.FormCadatro
+import br.com.fonzie.sosplusseniorassistido.view.telaprincipal.TelaPrincipal
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 
 class FormLogin : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFormCadatroBinding
+    private lateinit var binding: ActivityFormLoginBinding
+    private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =  ActivityFormCadatroBinding.inflate(layoutInflater)
+        binding = ActivityFormLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btCadastrar.setOnClickListener {
+        binding.btEntrar.setOnClickListener { view ->
+            val email = binding.editEmail.text.toString();
+            val senha = binding.editSenha.text.toString();
 
-            val intent = Intent(this, FormCadatro::class.java)
+            if (email.isEmpty() || senha.isEmpty()) {
+                val snackbar =
+                    Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
+            } else {
+                auth.signInWithEmailAndPassword(email, senha)
+                    .addOnCompleteListener { autenticacao ->
+                        if (autenticacao.isSuccessful) {
+                            navegarTelaPrincipal()
+                        }
+                    }.addOnFailureListener {
+                        val snackbar =
+                            Snackbar.make(view, "Erro ao fazer o login do usuário!", Snackbar.LENGTH_SHORT)
+                        snackbar.setBackgroundTint(Color.RED)
+                        snackbar.show()
+                        }
+                    }
+            }
+            binding.txtTelaCadastro.setOnClickListener {
+                val intent = Intent(this, FormCadatro::class.java)
+                startActivity(intent)
+            }
+        }
+        private fun navegarTelaPrincipal() {
+            val intent = Intent(this, TelaPrincipal::class.java)
             startActivity(intent)
+            finish()
         }
     }
-}

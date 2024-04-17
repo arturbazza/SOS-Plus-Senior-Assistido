@@ -15,10 +15,13 @@
         android:theme="@style/Theme.SOSPlusSeniorAssistido"
         tools:targetApi="31">
         <activity
-            android:name=".view.formlogin.FormLogin"
+            android:name=".view.telaprincipal.TelaPrincipal"
             android:exported="false" />
         <activity
             android:name=".view.formcadastro.FormCadatro"
+            android:exported="false" />
+        <activity
+            android:name=".view.formlogin.FormLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

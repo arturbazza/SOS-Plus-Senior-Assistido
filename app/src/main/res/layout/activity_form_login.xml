@@ -19,11 +19,11 @@
             android:layout_height="wrap_content"
             android:src="@drawable/logo_sos"
             android:scaleType="fitCenter"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="50dp"
             android:adjustViewBounds="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             android:layout_margin="20dp"/>
 
         <TextView
-            android:id="@+id/txt_TelaCadastro"
+            android:id="@+id/txt_telaCadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/texto_tela_cadastro"
