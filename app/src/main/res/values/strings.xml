@@ -6,5 +6,6 @@
     <string name="hint_senha">Senha</string>
     <string name="texto_botao_cadastrar">Cadastrar</string>
     <string name="texto_botao_entrar">Entrar</string>
-    <string name="texto_tela_cadastro">Não tem uma conta? Cadastre-se agora mesmo.</string>
+    <string name="texto_botao_deslogar">Deslogar</string>
+    <string name="texto_tela_cadastro">Não tem uma conta?\nCadastre-se agora mesmo.</string>
 </resources>
