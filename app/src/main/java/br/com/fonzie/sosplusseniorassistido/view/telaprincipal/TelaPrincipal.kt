@@ -47,7 +47,7 @@ class TelaPrincipal : AppCompatActivity() {
             db.collection("Usuários").document("Maria")
                 .addSnapshotListener { documento, error ->
                       if (documento != null) {
-                          binding.txtResultado.text = documento.getString("nome")
+                          //binding.txtResultado.textDirection = documento.getString("nome")
                       }
                 }
         }
