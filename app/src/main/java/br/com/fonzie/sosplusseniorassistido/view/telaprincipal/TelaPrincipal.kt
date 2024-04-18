@@ -32,7 +32,7 @@ class TelaPrincipal : AppCompatActivity() {
                 "nome" to "Ana",
                 "sobrenome" to "Medeiros",
                 "telefone" to 51999922078,
-                "email" to "arturbazzanellamidia3@gmail.com",
+                "email" to "arturbazzanellamidia@gmail.com",
                 "cpf" to 90329970097
             )
 
@@ -44,12 +44,17 @@ class TelaPrincipal : AppCompatActivity() {
                 }
         }
         binding.btLerDadosBD.setOnClickListener {
-            db.collection("Usuários").document("Maria")
+            db.collection("Usuários").document("Ana")
                 .addSnapshotListener { documento, error ->
-                      if (documento != null) {
-                          //binding.txtResultado.textDirection = documento.getString("nome")
-                      }
+                    if (documento != null) {
+                        binding.txtResultadoNome.text = documento.getString("nome")
+                        binding.txtResultadoSobrenome.text = documento.getString("sobrenome")
+                        binding.txtResultadoTelefone.text = documento.getString("telefone")
+                        binding.txtResultadoEmail.text = documento.getString("email")
+                        binding.txtResultadoCpf.text = documento.getString("cpf")
+                    }
                 }
         }
+
     }
 }

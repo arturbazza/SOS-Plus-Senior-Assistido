@@ -53,12 +53,48 @@
         android:layout_marginTop="20sp"
         />
 
-    <TextureView
-        android:id="@+id/txt_resultado"
+    <TextView
+        android:id="@+id/txt_resultadoNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbarSize="18sp"
         android:tag=""
+        android:scrollbarSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/txt_resultadoSobrenome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=""
+        android:scrollbarSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/txt_resultadoTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=""
+        android:scrollbarSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/txt_resultadoEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=""
+        android:scrollbarSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/txt_resultadoCpf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=""
+        android:scrollbarSize="18sp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
