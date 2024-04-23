@@ -30,10 +30,10 @@ class TelaPrincipal : AppCompatActivity() {
 
             val usuariosMap = hashMapOf(
                 "nome" to "Ana",
-                "sobrenome" to "Medeiros",
-                "telefone" to 51999922078,
-                "email" to "arturbazzanellamidia@gmail.com",
-                "cpf" to 90329970097
+                "sobrenome" to "Silva",
+                "telefone" to 51987654321,
+//                "email" to "arturbazzanellamidia@gmail.com",
+//                "cpf" to 90329970097
             )
 
             db.collection("Usuários").document("Ana")
@@ -47,14 +47,21 @@ class TelaPrincipal : AppCompatActivity() {
             db.collection("Usuários").document("Ana")
                 .addSnapshotListener { documento, error ->
                     if (documento != null) {
+                        var telefone = documento.getLong("telefone")
                         binding.txtResultadoNome.text = documento.getString("nome")
                         binding.txtResultadoSobrenome.text = documento.getString("sobrenome")
-                        binding.txtResultadoTelefone.text = documento.getString("telefone")
-                        binding.txtResultadoEmail.text = documento.getString("email")
-                        binding.txtResultadoCpf.text = documento.getString("cpf")
+                        binding.txtResultadoTelefone.text = telefone.toString()
                     }
                 }
         }
+
+//        binding.btAtualizarDadosDB.setOnClickListener {
+//
+//            db.collection("Usuários").document("Ana")
+//                .update("sobrenome", "da Silva").addOnCompleteListener {
+//                    Log.d("db_update", "Sucesso ao atualizar os dados do usuário!")
+//                }
+//        }
 
     }
 }
